@@ -56,10 +56,10 @@ public class Human {
 
     public String getInfo(){
         StringBuilder sb = new StringBuilder();
-        sb.append("name").append(name).append("\n");
-        sb.append("Mother name").append(getMotherInfo()).append("\n");
-        sb.append("Father name").append(getFatherInfo()).append("\n");
-        sb.append("Children").append(getChildrenInfo()).append("\n");
+        sb.append("name: ").append(name).append("\n");
+        sb.append("Mother name: ").append(getMotherInfo()).append("\n");
+        sb.append("Father name: ").append(getFatherInfo()).append("\n");
+        sb.append("Children: ").append(getChildrenInfo()).append("\n");
         return sb.toString();
     }
 

@@ -20,4 +20,24 @@ public class FamilyThree {
         return false;
     }
 
+    public Human getByName(String name){
+        for (Human human : humanList){
+            if (human.getName().equals(name)){
+                return human;
+            }
+        }
+        return null;
+    }
+
+    public String getInfo(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("in Three: ");
+        sb.append(humanList.size());
+        sb.append(" objects:").append("\n");
+        for (Human human : humanList){
+            sb.append(human.getInfo()).append("\n");
+        }
+        return sb.toString();
+    }
+
 }
