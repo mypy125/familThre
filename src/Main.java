@@ -9,7 +9,8 @@ public class Main{
         
         
         System.out.println(three.getInfo());
-        
+        FileHandler fileHandler = new FileHandler();
+        fileHandler.saveToFile("human.txt");
         
     }
 
