@@ -13,10 +13,19 @@ public class FamilyThree implements Serializable{
         this.humanList = humanList;
     }
 
-    public boolean addHuman(Human human){
+    public boolean add(Human human){
+        if (human == null){
+            return false;
+        }
         if (!humanList.contains(human)){
-            humanList.add(human);
-            return true;
+            humanList.add(human); 
+            if (human.getFather() != null){
+            human.getFather().addChild(human);
+        }
+        if (human.getMother() != null){
+            human.getMother().addChild(human);
+        }
+        return true;
         }
         return false;
     }

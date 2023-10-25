@@ -1,30 +1,29 @@
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 class FileHandler implements Writable{
-    File path = new File("human.txt");
     
     @Override
-    public void saveToFile(String path) {
-        try (FileOutputStream fileOutput = new FileOutputStream(path);
-        ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput)) {
-        objectOutput.writeObject(path);
-        } catch (IOException e) {
+    public boolean saveToFile(Serializable serializable, String filePath) {
+        try (ObjectOutputStream objectOutput = new ObjectOutputStream(new FileOutputStream(filePath))){
+            objectOutput.writeObject(serializable);
+            return true;
+        } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
     @Override
-    public void readFromFile(String path) {
-        try (FileInputStream fileInput = new FileInputStream(path);
-        ObjectInputStream objectInput = new ObjectInputStream(fileInput)) {
-        path = (String) objectInput.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+    public Object readFromFile(String filePath) {
+        try (ObjectInputStream objectInput = new ObjectInputStream(new FileInputStream(filePath))){ 
+            return objectInput.readObject();
+        }catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
     }
     

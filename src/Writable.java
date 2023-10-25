@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
 public interface Writable {
-    void saveToFile(String path);
-    void readFromFile(String path);
+    boolean saveToFile(Serializable serializable, String filePath);
+    Object readFromFile(String path);
 }
