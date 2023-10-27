@@ -13,9 +13,24 @@ public class Service {
         studentListGroup = new ArrayList<>();
         studentListGroup.add(group);
     }
+
+    public Service() {
+        this(new StudentGroup());
+    }
     
     public void addStudent(String name, int age) {
         activeGroup.add(new Student(id++, name, age));
     }
 
+    public void addStudentGroup(StudentGroup group) {
+        studentListGroup.add(group);
+    }
+
+    public String getInfo() {
+        StringBuilder sb = new StringBuilder();
+        for (Student student : activeGroup) {
+            sb.append(student).append("\n");
+        }
+        return sb.toString();
+    }
 }

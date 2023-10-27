@@ -1,9 +1,10 @@
 package student;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class StudentGroup {
+public class StudentGroup implements Iterable<Student>{
     private List<Student> students;
     
     public StudentGroup(){
@@ -12,5 +13,10 @@ public class StudentGroup {
 
     public void add(Student student){
         students.add(student);
+    }
+
+    @Override
+    public Iterator<Student> iterator() {
+        return new StudentIterator(students);
     }
 }
