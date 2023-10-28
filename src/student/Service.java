@@ -33,4 +33,12 @@ public class Service {
         }
         return sb.toString();
     }
+
+    public void sortByName(){
+        activeGroup.sortByName();
+    }
+
+    public void sortByAge(){
+        activeGroup.sortByAge();
+    }
 }
